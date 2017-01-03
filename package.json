@@ -1,0 +1,30 @@
+{
+  "name": "jquery.btnSwitch",
+  "version": "1.0.0",
+  "description": "A simple way to create button switches",
+  "main": "dist/jquery.btnswitch.min.js",
+  "dependencies": {
+    "jquery": ">=2.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9",
+    "gulp-concat": "^2.6",
+    "gulp-uglify": "^2.0",
+    "pump": "^1.0"
+  },
+  "keywords": [
+		"button",
+		"switch",
+		"jquery",
+		"jquery-plugin"
+	],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eman1986/jquery.btnSwitch.git"
+  },
+  "author": {
+		"name": "Eman Development &amp; Design",
+		"url": "http://emandevelopmentdesign.com"
+	},
+  "license": "MIT"
+}
