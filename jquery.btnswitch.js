@@ -63,32 +63,30 @@ if (typeof jQuery === "undefined") {
                 var sel = $(this).data('title');
 
                 if (settings.ConfirmChanges) {
-                    BootstrapDialog.confirm(settings.ConfirmText, function(result) {
-                        if (result) {
-                            if (settings.HiddenInputId != false) {
-                                $('#' + settings.HiddenInputId).prop('value', sel);
-                            }
-
-                            if (sel == settings.OnValue) {
-                                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass(settings.DefaultButtonCssClass).addClass(settings.OnCssClass);
-                                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass(settings.OffCssClass).addClass(settings.DefaultButtonCssClass);
-
-                                if ($.isFunction(settings.OnCallback)) {
-                                    settings.OnCallback(sel);
-                                }
-                            } else {
-                                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass(settings.OnCssClass).addClass(settings.DefaultButtonCssClass);
-                                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass(settings.DefaultButtonCssClass).addClass(settings.OffCssClass);
-
-                                if ($.isFunction(settings.OffCallback)) {
-                                    settings.OffCallback(sel);
-                                }
-                            }
-
-                            $('a[data-toggle="' + dataToggle + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
-                            $('a[data-toggle="' + dataToggle + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
+                    if (confirm(settings.ConfirmText)) {
+                        if (settings.HiddenInputId != false) {
+                            $('#' + settings.HiddenInputId).prop('value', sel);
                         }
-                    });
+
+                        if (sel == settings.OnValue) {
+                            $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass(settings.DefaultButtonCssClass).addClass(settings.OnCssClass);
+                            $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass(settings.OffCssClass).addClass(settings.DefaultButtonCssClass);
+
+                            if ($.isFunction(settings.OnCallback)) {
+                                settings.OnCallback(sel);
+                            }
+                        } else {
+                            $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass(settings.OnCssClass).addClass(settings.DefaultButtonCssClass);
+                            $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass(settings.DefaultButtonCssClass).addClass(settings.OffCssClass);
+
+                            if ($.isFunction(settings.OffCallback)) {
+                                settings.OffCallback(sel);
+                            }
+                        }
+
+                        $('a[data-toggle="' + dataToggle + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
+                        $('a[data-toggle="' + dataToggle + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
+                    }
                 } else {
                     if (settings.HiddenInputId != false) {
                         $('#' + settings.HiddenInputId).prop('value', sel);
