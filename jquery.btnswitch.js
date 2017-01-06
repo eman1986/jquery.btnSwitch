@@ -4,9 +4,7 @@
  * 
  * Minimal Usage: $('#switch').btnSwitch();
  * Settings:
- * OnCssClass: The Css Class that we'll use when switch in the "On" position
- * OffCssClass: The Css Class that we'll use when switch in the "Off" position
- * DefaultButtonCssClass: The Css Class that we'll use when switch is not used
+ * Theme: Select a theme (Button, Light, Swipe, iOS, Android)
  * OnText: What to display for the "On" Button
  * OffText: What to display for the "Off" Button
  * OnValue: The value of the "On" Button
@@ -27,9 +25,7 @@ if (typeof jQuery === "undefined") {
 (function($) {
     $.fn.btnSwitch = function(options) {
         var settings = $.extend({
-            OnCssClass: "btn-success",
-            OffCssClass: "btn-danger",
-            DefaultButtonCssClass: "btn-default",
+            Theme: "Button",
             OnText: "On",
             OffText: "Off",
             OnValue: true,
@@ -44,16 +40,76 @@ if (typeof jQuery === "undefined") {
 
         return this.each(function() {
             var dataToggle = Math.floor((Math.random() * 1000000) + 1);
+            var switchOnTpl, switchOffTpl;
 
-            var switchOnTpl = '<div id="bsh-' + this.id + '" class="btn-group">' +
-                        '<a class="btn ' + settings.OnCssClass + ' btn-sm active" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</a>' +
-                        '<a class="btn ' + settings.DefaultButtonCssClass + ' btn-sm notActive" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</a>' +
-                    '</div>';
+            switch(settings.Theme) {
+                case 'Button':
+                default:
+                    switchOnTpl = '<div id="bsh-' + this.id + '">' +
+                        '<a class="button-group button-on" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</a>' +
+                        '<a class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</a>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
 
-            var switchOffTpl = '<div id="bsh-' + this.id + '" class="btn-group">' +
-                        '<a class="btn ' + settings.DefaultButtonCssClass + ' btn-sm notActive" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</a>' +
-                        '<a class="btn ' + settings.OffCssClass + ' btn-sm active" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</a>' +
-                    '</div>';
+                    switchOffTpl = '<div id="bsh-' + this.id + '">' +
+                        '<a class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</a>' +
+                        '<a class="button-group button-off" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</a>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+                    break;
+                case 'Light':
+                    switchOnTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-light" id="light-' + this.id +'" type="checkbox" checked>' +
+                        '<label class="tgl-btn" for="light-' + this.id +'"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+
+                    switchOffTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-light" id="light-' + this.id +'" type="checkbox">' +
+                        '<label class="tgl-btn" for="light-' + this.id +'"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+                    break;
+                case 'Swipe':
+                    switchOnTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-swipe" id="swipe-' + this.id +'" type="checkbox" checked>' +
+                        '<label class="tgl-btn" for="swipe-' + this.id +'" data-tg-off="' + settings.OffText + '" data-tg-on="' + settings.OnText + '"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+
+                    switchOffTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-swipe" id="swipe-' + this.id +'" type="checkbox">' +
+                        '<label class="tgl-btn" for="swipe-' + this.id +'" data-tg-off="' + settings.OffText + '" data-tg-on="' + settings.OnText + '"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+                    break;
+                case 'iOS':
+                    switchOnTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-ios" id="ios-' + this.id +'" type="checkbox" checked>' +
+                        '<label class="tgl-btn" for="ios-' + this.id +'"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+
+                    switchOffTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-ios" id="ios-' + this.id +'" type="checkbox">' +
+                        '<label class="tgl-btn" for="ios-' + this.id +'"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+                    break;
+                case 'Android':
+                    switchOnTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-ios" id="ios-' + this.id +'" type="checkbox" checked>' +
+                        '<label class="tgl-btn" for="ios-' + this.id +'"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+
+                    switchOffTpl = '<div id="bsh-' + this.id + '">' +
+                        '<input class="tgl tgl-android" id="android-' + this.id +'" type="checkbox">' +
+                        '<label class="tgl-btn" for="android-' + this.id +'"></label>' +
+                        '</div>' +
+                        '<div style="clear:both"></div>';
+                    break;
+            }
 
             var btnSwitch = $(this);
 

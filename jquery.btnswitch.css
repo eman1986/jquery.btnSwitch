@@ -181,7 +181,7 @@
 }
 
 /* Android */
-.lbl {
+.tgl-android + .tgl-btn {
     position: relative;
     display: block;
     height: 20px;
@@ -191,8 +191,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
-.lbl:after {
+.tgl-android + .tgl-btn:after {
     position: absolute;
     left: -2px;
     top: -3px;
@@ -205,14 +204,10 @@
     content: '';
     transition: all 0.3s ease;
 }
-
-.lbl:active:after { transform: scale(1.15, 0.85); }
-
-.cbx:checked ~ label { background: #4CAF50; }
-
-.cbx:checked ~ label:after {
+.tgl-android:checked + .tgl-btn {
+    background: #4CAF50;
+}
+.tgl-android:checked + .tgl-btn:after {
     left: 40px;
     background: #3e8e41;
 }
-
-.hidden { display: none; }
