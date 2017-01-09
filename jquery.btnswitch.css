@@ -12,6 +12,7 @@
 
 .button-default {
     background-color: #ddd;
+    color: #000;
 }
 
 .button-default:hover {
@@ -19,8 +20,8 @@
 }
 
 .button-on {
-    background-color: #4CAF50; /* Green */
-    color: white;
+    background-color: #4CAF50;
+    color: #fff;
 }
 
 .button-on:hover {
@@ -28,8 +29,8 @@
 }
 
 .button-off {
-    background-color: #B22222; /* Green */
-    color: white;
+    background-color: #B22222;
+    color: #fff;
 }
 
 .button-off:hover {
@@ -74,7 +75,7 @@
 .tgl + .tgl-btn:before {
     display: none;
 }
-.tgl:checked + .tgl-btn:after {
+.tgl-active + .tgl-btn:after {
     left: 50%;
 }
 
@@ -92,7 +93,7 @@
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
 }
-.tgl-light:checked + .tgl-btn {
+.tgl-light-checked + .tgl-btn {
     background: #4CAF50;
 }
 
@@ -121,13 +122,13 @@
 .tgl-ios + .tgl-btn:active:after {
     padding-right: .8em;
 }
-.tgl-ios:checked + .tgl-btn {
+.tgl-ios-checked + .tgl-btn {
     background: #4CAF50;
 }
-.tgl-ios:checked + .tgl-btn:active {
+.tgl-ios-checked + .tgl-btn:active {
     box-shadow: none;
 }
-.tgl-ios:checked + .tgl-btn:active:after {
+.tgl-ios-checked + .tgl-btn:active:after {
     margin-left: -.8em;
 }
 
@@ -167,16 +168,16 @@
 .tgl-swipe + .tgl-btn:active:before {
     left: -10%;
 }
-.tgl-swipe:checked + .tgl-btn {
+.tgl-swipe-checked + .tgl-btn {
     background: #4CAF50;
 }
-.tgl-swipe:checked + .tgl-btn:before {
+.tgl-swipe-checked + .tgl-btn:before {
     left: -100%;
 }
-.tgl-swipe:checked + .tgl-btn:after {
+.tgl-swipe-checked + .tgl-btn:after {
     left: 0;
 }
-.tgl-swipe:checked + .tgl-btn:active:after {
+.tgl-swipe-checked + .tgl-btn:active:after {
     left: 10%;
 }
 
@@ -200,14 +201,14 @@
     height: 26px;
     border-radius: 100px;
     background: #800000;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.05);
     content: '';
     transition: all 0.3s ease;
 }
-.tgl-android:checked + .tgl-btn {
+.tgl-android-checked + .tgl-btn {
     background: #4CAF50;
 }
-.tgl-android:checked + .tgl-btn:after {
+.tgl-android-checked + .tgl-btn:after {
     left: 40px;
     background: #3e8e41;
 }
