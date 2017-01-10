@@ -6,14 +6,48 @@
     <link rel="stylesheet" href="../dist/jquery.btnswitch.min.css">
 </head>
 <body>
-    <h2>Base Test</h2>
-    <hr>
+    <h4>Base Test</h4>
     <div id="btnSwitch"></div>
+    <hr>
+    <h4>Set to On by default</h4>
+    <div id="btnSwitch1"></div>
+    <hr>
+    <h4>Confirm Action with Callback</h4>
+    <div id="btnSwitch2"></div>
+    <hr>
+    <h4>Callback</h4>
+    <div id="btnSwitch3"></div>
 
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../dist/jquery.btnswitch.min.js"></script>
     <script type="text/javascript">
         $('#btnSwitch').btnSwitch();
+
+        $('#btnSwitch1').btnSwitch({
+            ToggleState: true
+        });
+
+        $('#btnSwitch2').btnSwitch({
+            ConfirmChanges: true,
+            ConfirmText: 'Doing so will destroy everything...',
+            OnCallback: function(val) {
+                alert('you selected your fate!');
+            },
+            OffCallback: function (val) {
+                alert('you selected a safe choice.');
+            }
+        });
+
+        $('#btnSwitch3').btnSwitch({
+            OnValue: 'On',
+            OnCallback: function(val) {
+                alert('you selected ' + val);
+            },
+            OffValue: 'Off',
+            OffCallback: function (val) {
+                alert('you selected ' + val);
+            }
+        });
     </script>
 </body>
 </html>

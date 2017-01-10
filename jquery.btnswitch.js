@@ -46,11 +46,17 @@ if (typeof jQuery === "undefined") {
             $('a[data-toggle="' + dataToggle + '"][data-title="' + toggle + '"]').removeClass('notActive').addClass('active');
         };
 
-        var lightClickEvent = function (toggle, value) {
+        /**
+         * @param {object} instance
+         * @param {string} id
+         * @param {bool} toggle
+         * @param {bool|string} value
+         */
+        var lightClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
                 $('#light-' + id).addClass('tgl-light-checked tgl-active');
 
-                $(this).data('state', true);
+                instance.data('state', true);
 
                 if ($.isFunction(settings.OnCallback)) {
                     settings.OnCallback(value);
@@ -58,7 +64,7 @@ if (typeof jQuery === "undefined") {
             } else {
                 $('#light-' + id).removeClass('tgl-light-checked tgl-active');
 
-                $(this).data('state', false);
+                instance.data('state', false);
 
                 if ($.isFunction(settings.OffCallback)) {
                     settings.OffCallback(value);
@@ -66,16 +72,82 @@ if (typeof jQuery === "undefined") {
             }
         };
 
-        var swipeClickEvent = function (dataToggle, toggle) {
+        /**
+         * @param {object} instance
+         * @param {string} id
+         * @param {bool} toggle
+         * @param {bool|string} value
+         */
+        var swipeClickEvent = function (instance, id, toggle, value) {
+            if (!toggle) {
+                $('#swipe-' + id).addClass('tgl-swipe-checked tgl-active');
 
+                instance.data('state', true);
+
+                if ($.isFunction(settings.OnCallback)) {
+                    settings.OnCallback(value);
+                }
+            } else {
+                $('#swipe-' + id).removeClass('tgl-swipe-checked tgl-active');
+
+                instance.data('state', false);
+
+                if ($.isFunction(settings.OffCallback)) {
+                    settings.OffCallback(value);
+                }
+            }
         };
 
-        var iosClickEvent = function (dataToggle, toggle) {
+        /**
+         * @param {object} instance
+         * @param {string} id
+         * @param {bool} toggle
+         * @param {bool|string} value
+         */
+        var iosClickEvent = function (instance, id, toggle, value) {
+            if (!toggle) {
+                $('#ios-' + id).addClass('tgl-ios-checked tgl-active');
 
+                instance.data('state', true);
+
+                if ($.isFunction(settings.OnCallback)) {
+                    settings.OnCallback(value);
+                }
+            } else {
+                $('#ios-' + id).removeClass('tgl-ios-checked tgl-active');
+
+                instance.data('state', false);
+
+                if ($.isFunction(settings.OffCallback)) {
+                    settings.OffCallback(value);
+                }
+            }
         };
 
-        var androidClickEvent = function (dataToggle, toggle) {
+        /**
+         * @param {object} instance
+         * @param {string} id
+         * @param {bool} toggle
+         * @param {bool|string} value
+         */
+        var androidClickEvent = function (instance, id, toggle, value) {
+            if (!toggle) {
+                $('#android-' + id).addClass('tgl-android-checked tgl-active');
 
+                instance.data('state', true);
+
+                if ($.isFunction(settings.OnCallback)) {
+                    settings.OnCallback(value);
+                }
+            } else {
+                $('#android-' + id).removeClass('tgl-android-checked tgl-active');
+
+                instance.data('state', false);
+
+                if ($.isFunction(settings.OffCallback)) {
+                    settings.OffCallback(value);
+                }
+            }
         };
 
         var settings = $.extend({
@@ -152,7 +224,7 @@ if (typeof jQuery === "undefined") {
 
                     $('#sw-light-' + dataToggle).on('click', function() {
                         var state = $(this).data('state');
-                        var selValue = state ? settings.OnValue : settings.OffValue;
+                        var selValue = !state ? settings.OnValue : settings.OffValue;
 
                         if (settings.ConfirmChanges) {
                             if (confirm(settings.ConfirmText)) {
@@ -160,14 +232,14 @@ if (typeof jQuery === "undefined") {
                                     $('#' + settings.HiddenInputId).prop('value', selValue);
                                 }
 
-                                lightClickEvent(state, selValue);
+                                lightClickEvent($(this), id, state, selValue);
                             }
                         } else {
                             if (settings.HiddenInputId != false) {
                                 $('#' + settings.HiddenInputId).prop('value', selValue);
                             }
 
-                            lightClickEvent(dataToggle, selValue);
+                            lightClickEvent($(this), id, state, selValue);
                         }
                     });
                     break;
@@ -183,6 +255,36 @@ if (typeof jQuery === "undefined") {
                         '<label class="tgl-btn" for="swipe-' + id +'" id="sw-swipe-'+ dataToggle + '" data-tg-off="' + settings.OffText + '" data-tg-on="' + settings.OnText + '" data-state="false"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
+
+                    btnSwitch.html(settings.ToggleState == settings.OnValue ? switchOnTpl : switchOffTpl);
+
+                    $('#sw-swipe-' + dataToggle).on('click', function() {
+                        var state = $(this).data('state');
+                        var selValue = !state ? settings.OnValue : settings.OffValue;
+                        var $checkbox = $('#swipe-' + id);
+
+                        if (settings.ConfirmChanges) {
+                            if (confirm(settings.ConfirmText)) {
+                                if (settings.HiddenInputId != false) {
+                                    $('#' + settings.HiddenInputId).prop('value', selValue);
+                                }
+
+                                swipeClickEvent($(this), id, state, selValue);
+                            } else {
+                                if($checkbox.is(':checked')){
+                                    $checkbox.prop('checked', false);
+                                } else {
+                                    $checkbox.attr('checked', true);
+                                }
+                            }
+                        } else {
+                            if (settings.HiddenInputId != false) {
+                                $('#' + settings.HiddenInputId).prop('value', selValue);
+                            }
+
+                            swipeClickEvent($(this), id, state, selValue);
+                        }
+                    });
                     break;
                 case 'iOS':
                     switchOnTpl = '<div id="bsh-' + id + '">' +
@@ -196,6 +298,29 @@ if (typeof jQuery === "undefined") {
                         '<label class="tgl-btn" for="ios-' + id +'" id="sw-ios-'+ dataToggle + '" data-state="false"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
+
+                    btnSwitch.html(settings.ToggleState == settings.OnValue ? switchOnTpl : switchOffTpl);
+
+                    $('#sw-ios-' + dataToggle).on('click', function() {
+                        var state = $(this).data('state');
+                        var selValue = !state ? settings.OnValue : settings.OffValue;
+
+                        if (settings.ConfirmChanges) {
+                            if (confirm(settings.ConfirmText)) {
+                                if (settings.HiddenInputId != false) {
+                                    $('#' + settings.HiddenInputId).prop('value', selValue);
+                                }
+
+                                iosClickEvent($(this), id, state, selValue);
+                            }
+                        } else {
+                            if (settings.HiddenInputId != false) {
+                                $('#' + settings.HiddenInputId).prop('value', selValue);
+                            }
+
+                            iosClickEvent($(this), id, state, selValue);
+                        }
+                    });
                     break;
                 case 'Android':
                     switchOnTpl = '<div id="bsh-' + id + '">' +
@@ -209,6 +334,29 @@ if (typeof jQuery === "undefined") {
                         '<label class="tgl-btn" for="android-' + id +'" id="sw-android-'+ dataToggle + '" data-state="false"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
+
+                    btnSwitch.html(settings.ToggleState == settings.OnValue ? switchOnTpl : switchOffTpl);
+
+                    $('#sw-android-' + dataToggle).on('click', function() {
+                        var state = $(this).data('state');
+                        var selValue = !state ? settings.OnValue : settings.OffValue;
+
+                        if (settings.ConfirmChanges) {
+                            if (confirm(settings.ConfirmText)) {
+                                if (settings.HiddenInputId != false) {
+                                    $('#' + settings.HiddenInputId).prop('value', selValue);
+                                }
+
+                                androidClickEvent($(this), id, state, selValue);
+                            }
+                        } else {
+                            if (settings.HiddenInputId != false) {
+                                $('#' + settings.HiddenInputId).prop('value', selValue);
+                            }
+
+                            androidClickEvent($(this), id, state, selValue);
+                        }
+                    });
                     break;
             }
         });

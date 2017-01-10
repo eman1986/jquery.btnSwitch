@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Light Theme</title>
+    <title>iOS Theme</title>
     <link rel="stylesheet" href="../../dist/jquery.btnswitch.min.css">
 </head>
 <body>
-<h2>Theme Test: Light</h2>
+<h2>Theme Test: iOS</h2>
 <hr>
 <h4>Base Test</h4>
 <div id="btnSwitch"></div>
@@ -24,16 +24,16 @@
 <script type="text/javascript" src="../../jquery.btnswitch.js"></script>
 <script type="text/javascript">
     $('#btnSwitch').btnSwitch({
-        Theme: 'Light'
+        Theme: 'iOS'
     });
 
     $('#btnSwitch1').btnSwitch({
-        Theme: 'Light',
+        Theme: 'iOS',
         ToggleState: true
     });
 
     $('#btnSwitch2').btnSwitch({
-        Theme: 'Light',
+        Theme: 'iOS',
         ConfirmChanges: true,
         ConfirmText: 'Doing so will destroy everything...',
         OnCallback: function(val) {
@@ -45,12 +45,12 @@
     });
 
     $('#btnSwitch3').btnSwitch({
-        Theme: 'Light',
+        Theme: 'iOS',
         OnValue: 'On',
         OnCallback: function(val) {
             alert('you selected ' + val);
         },
-        OffValue: 'Off',
+        OffValue: 'iOS',
         OffCallback: function (val) {
             alert('you selected ' + val);
         }

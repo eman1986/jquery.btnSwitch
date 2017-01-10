@@ -168,16 +168,16 @@
 .tgl-swipe + .tgl-btn:active:before {
     left: -10%;
 }
-.tgl-swipe-checked + .tgl-btn {
+.tgl-swipe:checked + .tgl-btn {
     background: #4CAF50;
 }
-.tgl-swipe-checked + .tgl-btn:before {
+.tgl-swipe:checked + .tgl-btn:before {
     left: -100%;
 }
-.tgl-swipe-checked + .tgl-btn:after {
+.tgl-swipe:checked + .tgl-btn:after {
     left: 0;
 }
-.tgl-swipe-checked + .tgl-btn:active:after {
+.tgl-swipe:checked + .tgl-btn:active:after {
     left: 10%;
 }
 
