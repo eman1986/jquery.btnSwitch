@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A simple way to create button switches",
   "main": "dist/jquery.btnswitch.min.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "jquery": ">=2.2"
+    "jquery": ">=2.0"
   },
   "devDependencies": {
     "gulp": "^3.9",
@@ -24,8 +27,11 @@
     "type": "git",
     "url": "https://github.com/eman1986/jquery.btnSwitch.git"
   },
+  "bugs": {
+    "url": "https://github.com/eman1986/jquery.btnSwitch/issues"
+  },
   "author": {
-    "name": "Eman Development &amp; Design",
+    "name": "Ed Lomonaco",
     "url": "http://emandevelopmentdesign.com"
   },
   "license": "MIT"

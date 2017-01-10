@@ -1,5 +1,5 @@
 ﻿/**
- * jQuery Switch Plugin
+ * jQuery Button Switch Plugin
  * Version 1.0.0
  * 
  * Minimal Usage: $('#switch').btnSwitch();
@@ -20,6 +20,11 @@
 if (typeof jQuery === "undefined") {
     alert("jQuery Switch Button requires jQuery");
     throw new Error("jQuery Switch Button requires jQuery");
+}
+
+if(jQuery.fn.jquery < "2.0") {
+    alert('Incompatible version of jQuery detected, please upgrade to at least 2.0');
+    throw new Error("Incompatible version of jQuery detected, please upgrade to at least 2.0");
 }
 
 (function($) {
@@ -49,8 +54,8 @@ if (typeof jQuery === "undefined") {
         /**
          * @param {object} instance
          * @param {string} id
-         * @param {bool} toggle
-         * @param {bool|string} value
+         * @param {boolean} toggle
+         * @param {boolean|string} value
          */
         var lightClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
@@ -75,8 +80,8 @@ if (typeof jQuery === "undefined") {
         /**
          * @param {object} instance
          * @param {string} id
-         * @param {bool} toggle
-         * @param {bool|string} value
+         * @param {boolean} toggle
+         * @param {boolean|string} value
          */
         var swipeClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
@@ -101,8 +106,8 @@ if (typeof jQuery === "undefined") {
         /**
          * @param {object} instance
          * @param {string} id
-         * @param {bool} toggle
-         * @param {bool|string} value
+         * @param {boolean} toggle
+         * @param {boolean|string} value
          */
         var iosClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
@@ -127,8 +132,8 @@ if (typeof jQuery === "undefined") {
         /**
          * @param {object} instance
          * @param {string} id
-         * @param {bool} toggle
-         * @param {bool|string} value
+         * @param {boolean} toggle
+         * @param {boolean|string} value
          */
         var androidClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
