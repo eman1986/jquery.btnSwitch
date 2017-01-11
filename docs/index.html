@@ -32,20 +32,17 @@
     <h2>Settings</h2>
 
     <ul>
-        <li><strong>Theme:</strong> Select a theme (Button, Light, Swipe, iOS, Android)</li>
-        <li><strong>OnText:</strong> What to display for the "On" Button</li>
-        <li><strong>OffText:</strong> What to display for the "Off" Button</li>
-        <li><strong>OnValue:</strong> The value of the "On" Button</li>
-        <li><strong>OffValue:</strong> The value of the "Off" Button</li>
-        <li><strong>OnCallback:</strong> Callback on "On" selection</li>
-        <li><strong>OffCallback:</strong> Callback on "Off" selection</li>
-        <li><strong>ToggleState:</strong> Set the state of the switch toggle.</li>
-        <li><strong>ConfirmChanges:</strong> Determines if we should confirm any changes</li>
-        <li><strong>ConfirmText:</strong> What message we�ll display to the user when ConfirmChanges is set to true
-        </li>
-        <li>
-            <strong>HiddenInputId:</strong> the hidden field the plugin should populate or false to not populate a hidden field
-        </li>
+        <li><strong>Theme:</strong> Select a theme (Button, Light, Swipe, iOS, Android) <code>Default: Button</code></li>
+        <li><strong>OnText:</strong> What to display for the "On" Button <code>Default: On</code></li>
+        <li><strong>OffText:</strong> What to display for the "Off" Button <code>Default: Off</code></li>
+        <li><strong>OnValue:</strong> The value of the "On" Button <code>Default: true</code></li>
+        <li><strong>OffValue:</strong> The value of the "Off" Button <code>Default: false</code></li>
+        <li><strong>OnCallback:</strong> Callback to fire when the "On" button is clicked <code>Default: null</code></li>
+        <li><strong>OffCallback:</strong> Callback to fire when the "Off" button is clicked <code>Default: null</code></li>
+        <li><strong>ToggleState:</strong> Set the state of the switch toggle. <code>Default: false</code></li>
+        <li><strong>ConfirmChanges:</strong> Determines if we should confirm any changes <code>Default: false</code></li>
+        <li><strong>ConfirmText:</strong> What message we'll display to the user when ConfirmChanges is set to true <code>Default: Are you sure?</code></li>
+        <li><strong>HiddenInputId:</strong> the hidden field the plugin should populate or false to not populate a hidden field <code>Default: false</code></li>
     </ul>
 
     <h2>Examples</h2>
