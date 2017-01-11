@@ -2,4 +2,12 @@
 
 A simple way to create button switches.
 
-## More details to come soon.
+## Install
+
+```bash
+npm install jquery-btnswitch
+```
+
+## Examples
+
+_Coming Soon_
