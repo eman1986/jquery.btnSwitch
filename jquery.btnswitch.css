@@ -17,6 +17,8 @@
 
 .button-default:hover {
     background-color: #ccc;
+    color: #000;
+    text-decoration: none;
 }
 
 .button-on {
@@ -26,6 +28,8 @@
 
 .button-on:hover {
     background-color: #3e8e41;
+    color: #fff;
+    text-decoration: none;
 }
 
 .button-off {
@@ -35,6 +39,8 @@
 
 .button-off:hover {
     background-color: #800000;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* Core */

@@ -1,88 +1,72 @@
-
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>jQuery Button Switch Plugin</title>
-    <link href='https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/jquery.btnSwitch/assets/css/style.css?v=baaf088d08624de2d3e9b4c2a37c27e4263d4de8">
-    <link rel="stylesheet" href="dist/jquery.btnswitch.min.css">
-    <script src="/jquery.btnSwitch/assets/js/scale.fix.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/darcula.css">
+    <link rel="stylesheet" href="assets/css/jquery.btnswitch.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header >
+<div class="jumbotron">
+    <div class="container">
         <h1>jQuery Button Switch</h1>
-        
-          <p>A simple way to create button switches</p>
-        
-        <p class="view"><a href="https://github.com/eman1986/jquery.btnSwitch">View the Project on GitHub <small></small></a></p>
-        <ul>
-        
-          <li><a href="https://github.com/eman1986/jquery.btnSwitch">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-
-      <h2 id="jquery-button-switch-plugin">jQuery Button Switch Plugin</h2>
-
-<p>A simple way to create button switches.</p>
-
-<h2 id="install">Install</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm install jquery-btnswitch
-</code></pre>
-</div>
-
-<p><strong>you must be using at least jQuery 2.0</strong></p>
-
-<h2 id="settings">Settings</h2>
-
-<ul>
-  <li><strong>Theme:</strong> Select a theme (Button, Light, Swipe, iOS, Android)</li>
-  <li><strong>OnText:</strong> What to display for the "On" Button</li>
-  <li><strong>OffText:</strong> What to display for the "Off" Button</li>
-  <li><strong>OnValue:</strong> The value of the "On" Button</li>
-  <li><strong>OffValue:</strong> The value of the "Off" Button</li>
-  <li><strong>OnCallback:</strong> Callback on "On" selection</li>
-  <li><strong>OffCallback:</strong> Callback on "Off" selection</li>
-  <li><strong>ToggleState:</strong> Set the state of the switch toggle.</li>
-  <li><strong>ConfirmChanges:</strong> Determines if we should confirm any changes</li>
-  <li><strong>ConfirmText:</strong> What message we’ll display to the user when ConfirmChanges is set to true</li>
-  <li><strong>HiddenInputId:</strong> the hidden field the plugin should populate or false to not populate a hidden field</li>
-</ul>
-
-<h2 id="examples">Examples</h2>
-
-<h3 id="basic-implentation">Basic Implentation</h3>
-
-<div id="btnSwitch"></div><br>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s1">'#switch'</span><span class="p">).</span><span class="nx">btnSwitch</span><span class="p">();</span>
-</code></pre>
-</div>
-
-
-      </section>
+        <p>A simple way to create button switches</p>
+        <p><a href="https://github.com/eman1986/jquery.btnSwitch" class="btn btn-primary btn-lg">View On <strong>GitHub</strong></a></p>
     </div>
-    <footer>
-    
-      <p>Project maintained by <a href="https://github.com/eman1986">eman1986</a></p>
-    
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+</div>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript" src="dist/jquery.btnswitch.min.js"></script>
-  <script type="text/javascript">
+<div class="container-fluid bg">
+    <h2>Install</h2>
+
+    <pre><code class="bash">npm install jquery-btnswitch</code></pre>
+
+    <p><strong>you must be using at least jQuery 2.0</strong></p>
+
+    <h2>Settings</h2>
+
+    <ul>
+        <li><strong>Theme:</strong> Select a theme (Button, Light, Swipe, iOS, Android)</li>
+        <li><strong>OnText:</strong> What to display for the "On" Button</li>
+        <li><strong>OffText:</strong> What to display for the "Off" Button</li>
+        <li><strong>OnValue:</strong> The value of the "On" Button</li>
+        <li><strong>OffValue:</strong> The value of the "Off" Button</li>
+        <li><strong>OnCallback:</strong> Callback on "On" selection</li>
+        <li><strong>OffCallback:</strong> Callback on "Off" selection</li>
+        <li><strong>ToggleState:</strong> Set the state of the switch toggle.</li>
+        <li><strong>ConfirmChanges:</strong> Determines if we should confirm any changes</li>
+        <li><strong>ConfirmText:</strong> What message weï¿½ll display to the user when ConfirmChanges is set to true
+        </li>
+        <li>
+            <strong>HiddenInputId:</strong> the hidden field the plugin should populate or false to not populate a hidden field
+        </li>
+    </ul>
+
+    <h2>Examples</h2>
+
+    <h3>Basic Implentation</h3>
+
+    <div id="btnSwitch"></div>
+    <br>
+
+    <pre><code class="bash">$('#btnSwitch').btnSwitch();</code></pre>
+</div>
+
+<footer>
+    <p>Project maintained by <a href="https://github.com/eman1986">eman1986</a> - Hosted on GitHub Pages</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/js/jquery.btnswitch.min.js"></script>
+<script type="text/javascript">
     $('#btnSwitch').btnSwitch();
-  </script>
-  </body>
+</script>
+</body>
 </html>
