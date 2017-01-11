@@ -31,3 +31,6 @@ npm install jquery-btnswitch
 ```javascript
 $('#switch').btnSwitch();
 ```
+<script>
+ alert('Just testing');
+</script>
