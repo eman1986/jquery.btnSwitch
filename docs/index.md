@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://raw.githubusercontent.com/eman1986/jquery.btnSwitch/master/dist/jquery.btnswitch.min.css">
+
 ## jQuery Button Switch Plugin
 
 A simple way to create button switches.
@@ -28,9 +30,9 @@ npm install jquery-btnswitch
 
 ### Basic Implentation
 
+<div id="btnSwitch"></div>
+
 ```javascript
 $('#switch').btnSwitch();
 ```
-<script>
- alert('Just testing');
-</script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/eman1986/jquery.btnSwitch/master/dist/jquery.btnswitch.min.js"></script>
