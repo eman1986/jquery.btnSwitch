@@ -23,16 +23,10 @@
     "jquery",
     "jquery-plugin"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eman1986/jquery.btnSwitch.git"
-  },
+  "author": "Eman Develop & Design",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/eman1986/jquery.btnSwitch/issues"
   },
-  "author": {
-    "name": "Ed Lomonaco",
-    "url": "http://emandevelopmentdesign.com"
-  },
-  "license": "MIT"
+  "homepage": "https://github.com/eman1986/jquery.btnSwitch#readme"
 }
