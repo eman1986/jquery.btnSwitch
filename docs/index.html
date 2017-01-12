@@ -24,12 +24,14 @@
 
 <div class="container-fluid bg">
     <h2>Install</h2>
+    <hr>
 
     <pre><code class="bash">npm install jquery-btnswitch</code></pre>
 
     <p><strong>you must be using at least jQuery 2.0</strong></p>
 
     <h2>Settings</h2>
+    <hr>
 
     <ul>
         <li><strong>Theme:</strong> Select a theme (Button, Light, Swipe, iOS, Android) <code>Default: Button</code></li>
@@ -46,17 +48,85 @@
     </ul>
 
     <h2>Examples</h2>
+    <hr>
 
-    <h3>Basic Implentation</h3>
+    <h4>Basic Implementation</h4>
 
     <div id="btnSwitch"></div>
     <br>
+    <pre><code class="javascript">$('#btnSwitch').btnSwitch();</code></pre>
+    <hr>
 
-    <pre><code class="bash">$('#btnSwitch').btnSwitch();</code></pre>
+    <h4>Confirm Action with Callback</h4>
+    <div id="btnSwitch2"></div>
+    <br>
+    <pre><code class="javascript">$('#btnSwitch').btnSwitch({
+    ConfirmChanges: true,
+    ConfirmText: 'You really want to do that?',
+    OnCallback: function(val) {
+        alert('system is now on');
+    },
+    OffCallback: function (val) {
+        alert('system is now off');
+    }
+});</code></pre>
+    <hr>
+
+    <h4>Callback</h4>
+    <div id="btnSwitch3"></div>
+    <br>
+    <pre><code class="javascript">$('#btnSwitch').btnSwitch({
+    OnValue: 'On',
+    OnCallback: function(val) {
+        alert('you selected ' + val);
+    },
+    OffValue: 'Off',
+    OffCallback: function (val) {
+        alert('you selected ' + val);
+    }
+});</code></pre>
+
+    <h2>Themes</h2>
+    <hr>
+
+    <p>
+        You can change the look of the switch by selecting one of the possible themes below:
+    </p>
+
+    <h4>Light</h4>
+    <div id="btnSwitchLightTheme"></div>
+    <br>
+    <pre><code class="javascript">$('#btnSwitch').btnSwitch({
+    Theme: 'Light'
+});</code></pre>
+
+    <h4>Swipe</h4>
+    <div id="btnSwitchSwipeTheme"></div>
+    <br>
+    <pre><code class="javascript">$('#btnSwitch').btnSwitch({
+    Theme: 'Swipe'
+});</code></pre>
+
+    <h4>iOS</h4>
+    <div id="btnSwitchiOSTheme"></div>
+    <br>
+    <pre><code class="javascript">$('#btnSwitch').btnSwitch({
+    Theme: 'iOS'
+});</code></pre>
+
+    <h4>Android</h4>
+    <div id="btnSwitchAndroidTheme"></div>
+    <br>
+    <pre><code class="javascript">$('#btnSwitch').btnSwitch({
+    Theme: 'Android'
+});</code></pre>
 </div>
 
 <footer>
-    <p>Project maintained by <a href="https://github.com/eman1986">eman1986</a> - Hosted on GitHub Pages</p>
+    <p>
+        Project maintained by <a href="http://emandevelopmentdesign.com">Eman Development & Design</a>
+        &nbsp;Theme By <a href="https://bootswatch.com/" target="_blank">Bootswatch</a>
+    </p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -64,6 +134,44 @@
 <script type="text/javascript" src="assets/js/jquery.btnswitch.min.js"></script>
 <script type="text/javascript">
     $('#btnSwitch').btnSwitch();
+
+    $('#btnSwitch2').btnSwitch({
+        ConfirmChanges: true,
+        ConfirmText: 'You really want to do that?',
+        OnCallback: function(val) {
+            alert('system is now on');
+        },
+        OffCallback: function (val) {
+            alert('system is now off');
+        }
+    });
+
+    $('#btnSwitch3').btnSwitch({
+        OnValue: 'On',
+        OnCallback: function(val) {
+            alert('you selected ' + val);
+        },
+        OffValue: 'Off',
+        OffCallback: function (val) {
+            alert('you selected ' + val);
+        }
+    });
+
+    $('#btnSwitchLightTheme').btnSwitch({
+        Theme: 'Light'
+    });
+
+    $('#btnSwitchSwipeTheme').btnSwitch({
+        Theme: 'Swipe'
+    });
+
+    $('#btnSwitchiOSTheme').btnSwitch({
+        Theme: 'iOS'
+    });
+
+    $('#btnSwitchAndroidTheme').btnSwitch({
+        Theme: 'Android'
+    });
 </script>
 </body>
 </html>

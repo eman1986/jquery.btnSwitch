@@ -32,23 +32,23 @@ if(jQuery.fn.jquery < "2.0") {
         // Private Methods
         var buttonClickEvent = function(dataToggle, toggle) {
             if (toggle == settings.OnValue) {
-                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass('button-default').addClass('button-on');
-                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass('button-off').addClass('button-default');
+                $('button[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass('button-default').addClass('button-on');
+                $('button[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass('button-off').addClass('button-default');
 
                 if ($.isFunction(settings.OnCallback)) {
                     settings.OnCallback(toggle);
                 }
             } else {
-                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass('button-on').addClass('button-default');
-                $('a[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass('button-default').addClass('button-off');
+                $('button[data-toggle="' + dataToggle + '"][data-title="' + settings.OnValue + '"]').removeClass('button-on').addClass('button-default');
+                $('button[data-toggle="' + dataToggle + '"][data-title="' + settings.OffValue + '"]').removeClass('button-default').addClass('button-off');
 
                 if ($.isFunction(settings.OffCallback)) {
                     settings.OffCallback(toggle);
                 }
             }
 
-            $('a[data-toggle="' + dataToggle + '"]').not('[data-title="' + toggle + '"]').removeClass('active').addClass('notActive');
-            $('a[data-toggle="' + dataToggle + '"][data-title="' + toggle + '"]').removeClass('notActive').addClass('active');
+            $('button[data-toggle="' + dataToggle + '"]').not('[data-title="' + toggle + '"]').prop('disabled', false).removeClass('active').addClass('notActive');
+            $('button[data-toggle="' + dataToggle + '"][data-title="' + toggle + '"]').prop('disabled', true).removeClass('notActive').addClass('active');
         };
 
         /**
@@ -59,7 +59,7 @@ if(jQuery.fn.jquery < "2.0") {
          */
         var lightClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
-                $('#light-' + id).addClass('tgl-light-checked tgl-active');
+                $('#light-' + id).addClass('tgl-sw-light-checked tgl-sw-active');
 
                 instance.data('state', true);
 
@@ -67,7 +67,7 @@ if(jQuery.fn.jquery < "2.0") {
                     settings.OnCallback(value);
                 }
             } else {
-                $('#light-' + id).removeClass('tgl-light-checked tgl-active');
+                $('#light-' + id).removeClass('tgl-sw-light-checked tgl-sw-active');
 
                 instance.data('state', false);
 
@@ -85,7 +85,7 @@ if(jQuery.fn.jquery < "2.0") {
          */
         var swipeClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
-                $('#swipe-' + id).addClass('tgl-swipe-checked tgl-active');
+                $('#swipe-' + id).addClass('tgl-sw-swipe-checked tgl-sw-active');
 
                 instance.data('state', true);
 
@@ -93,7 +93,7 @@ if(jQuery.fn.jquery < "2.0") {
                     settings.OnCallback(value);
                 }
             } else {
-                $('#swipe-' + id).removeClass('tgl-swipe-checked tgl-active');
+                $('#swipe-' + id).removeClass('tgl-sw-swipe-checked tgl-sw-active');
 
                 instance.data('state', false);
 
@@ -111,7 +111,7 @@ if(jQuery.fn.jquery < "2.0") {
          */
         var iosClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
-                $('#ios-' + id).addClass('tgl-ios-checked tgl-active');
+                $('#ios-' + id).addClass('tgl-sw-ios-checked tgl-sw-active');
 
                 instance.data('state', true);
 
@@ -119,7 +119,7 @@ if(jQuery.fn.jquery < "2.0") {
                     settings.OnCallback(value);
                 }
             } else {
-                $('#ios-' + id).removeClass('tgl-ios-checked tgl-active');
+                $('#ios-' + id).removeClass('tgl-sw-ios-checked tgl-sw-active');
 
                 instance.data('state', false);
 
@@ -137,7 +137,7 @@ if(jQuery.fn.jquery < "2.0") {
          */
         var androidClickEvent = function (instance, id, toggle, value) {
             if (!toggle) {
-                $('#android-' + id).addClass('tgl-android-checked tgl-active');
+                $('#android-' + id).addClass('tgl-sw-android-checked tgl-sw-active');
 
                 instance.data('state', true);
 
@@ -145,7 +145,7 @@ if(jQuery.fn.jquery < "2.0") {
                     settings.OnCallback(value);
                 }
             } else {
-                $('#android-' + id).removeClass('tgl-android-checked tgl-active');
+                $('#android-' + id).removeClass('tgl-sw-android-checked tgl-sw-active');
 
                 instance.data('state', false);
 
@@ -179,20 +179,20 @@ if(jQuery.fn.jquery < "2.0") {
                 case 'Button':
                 default:
                     switchOnTpl = '<div id="bsh-' + id + '">' +
-                        '<a class="button-group button-on" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</a>' +
-                        '<a class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</a>' +
+                        '<button class="button-group button-on" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '" disabled>' + settings.OnText + '</button>' +
+                        '<button class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</button>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
                     switchOffTpl = '<div id="bsh-' + id + '">' +
-                        '<a class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</a>' +
-                        '<a class="button-group button-off" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</a>' +
+                        '<button class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</button>' +
+                        '<button class="button-group button-off" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '" disabled>' + settings.OffText + '</button>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
                     btnSwitch.html(settings.ToggleState == settings.OnValue ? switchOnTpl : switchOffTpl);
 
-                    $('#bsh-' + id + ' a').on('click', function() {
+                    $('#bsh-' + id + ' button').on('click', function() {
                         var sel = $(this).data('title');
 
                         if (settings.ConfirmChanges) {
@@ -214,14 +214,14 @@ if(jQuery.fn.jquery < "2.0") {
                     break;
                 case 'Light':
                     switchOnTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-light tgl-light-checked tgl-active" id="light-' + id +'" type="checkbox" checked>' +
-                        '<label class="tgl-btn" for="light-' + id +'" id="sw-light-'+ dataToggle + '" data-state="true"></label>' +
+                        '<input class="tgl-sw tgl-sw-light tgl-sw-light-checked tgl-sw-active" id="light-' + id +'" type="checkbox" checked>' +
+                        '<label class="btn-switch" for="light-' + id +'" id="sw-light-'+ dataToggle + '" data-state="true"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
                     switchOffTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-light" id="light-' + id +'" type="checkbox">' +
-                        '<label class="tgl-btn" for="light-' + id +'" id="sw-light-'+ dataToggle + '" data-state="false"></label>' +
+                        '<input class="tgl-sw tgl-sw-light" id="light-' + id +'" type="checkbox">' +
+                        '<label class="btn-switch" for="light-' + id +'" id="sw-light-'+ dataToggle + '" data-state="false"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
@@ -250,14 +250,14 @@ if(jQuery.fn.jquery < "2.0") {
                     break;
                 case 'Swipe':
                     switchOnTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-swipe tgl-swipe-checked tgl-active" id="swipe-' + id +'" type="checkbox" checked>' +
-                        '<label class="tgl-btn" for="swipe-' + id +'" id="sw-swipe-'+ dataToggle + '" data-tg-off="' + settings.OffText + '" data-tg-on="' + settings.OnText + '" data-state="true"></label>' +
+                        '<input class="tgl-sw tgl-sw-swipe tgl-sw-swipe-checked tgl-sw-active" id="swipe-' + id +'" type="checkbox" checked>' +
+                        '<label class="btn-switch" for="swipe-' + id +'" id="sw-swipe-'+ dataToggle + '" data-tg-off="' + settings.OffText + '" data-tg-on="' + settings.OnText + '" data-state="true"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
                     switchOffTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-swipe" id="swipe-' + id +'" type="checkbox">' +
-                        '<label class="tgl-btn" for="swipe-' + id +'" id="sw-swipe-'+ dataToggle + '" data-tg-off="' + settings.OffText + '" data-tg-on="' + settings.OnText + '" data-state="false"></label>' +
+                        '<input class="tgl-sw tgl-sw-swipe" id="swipe-' + id +'" type="checkbox">' +
+                        '<label class="btn-switch" for="swipe-' + id +'" id="sw-swipe-'+ dataToggle + '" data-tg-off="' + settings.OffText + '" data-tg-on="' + settings.OnText + '" data-state="false"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
@@ -293,14 +293,14 @@ if(jQuery.fn.jquery < "2.0") {
                     break;
                 case 'iOS':
                     switchOnTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-ios tgl-ios-checked tgl-active" id="ios-' + id +'" type="checkbox" checked>' +
-                        '<label class="tgl-btn" for="ios-' + id +'" id="sw-ios-'+ dataToggle + '" data-state="true"></label>' +
+                        '<input class="tgl-sw tgl-sw-ios tgl-sw-ios-checked tgl-sw-active" id="ios-' + id +'" type="checkbox" checked>' +
+                        '<label class="btn-switch" for="ios-' + id +'" id="sw-ios-'+ dataToggle + '" data-state="true"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
                     switchOffTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-ios" id="ios-' + id +'" type="checkbox">' +
-                        '<label class="tgl-btn" for="ios-' + id +'" id="sw-ios-'+ dataToggle + '" data-state="false"></label>' +
+                        '<input class="tgl-sw tgl-sw-ios" id="ios-' + id +'" type="checkbox">' +
+                        '<label class="btn-switch" for="ios-' + id +'" id="sw-ios-'+ dataToggle + '" data-state="false"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
@@ -329,14 +329,14 @@ if(jQuery.fn.jquery < "2.0") {
                     break;
                 case 'Android':
                     switchOnTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-android tgl-android-checked tgl-active" id="android-' + id +'" type="checkbox" checked>' +
-                        '<label class="tgl-btn" for="android-' + id +'" id="sw-android-'+ dataToggle + '" data-state="true"></label>' +
+                        '<input class="tgl-sw tgl-sw-android tgl-sw-android-checked tgl-sw-active" id="android-' + id +'" type="checkbox" checked>' +
+                        '<label class="btn-switch" for="android-' + id +'" id="sw-android-'+ dataToggle + '" data-state="true"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
                     switchOffTpl = '<div id="bsh-' + id + '">' +
-                        '<input class="tgl tgl-android" id="android-' + id +'" type="checkbox">' +
-                        '<label class="tgl-btn" for="android-' + id +'" id="sw-android-'+ dataToggle + '" data-state="false"></label>' +
+                        '<input class="tgl-sw tgl-sw-android" id="android-' + id +'" type="checkbox">' +
+                        '<label class="btn-switch" for="android-' + id +'" id="sw-android-'+ dataToggle + '" data-state="false"></label>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
