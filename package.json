@@ -1,6 +1,6 @@
 {
   "name": "jquery-btnswitch",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A simple way to create button switches",
   "main": "dist/jquery.btnswitch.min.js",
   "files": [
