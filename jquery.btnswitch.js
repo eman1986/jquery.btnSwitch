@@ -179,14 +179,14 @@ if(jQuery.fn.jquery < "2.0") {
                 case 'Button':
                 default:
                     switchOnTpl = '<div id="bsh-' + id + '">' +
-                        '<button class="button-group button-on" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '" disabled>' + settings.OnText + '</button>' +
-                        '<button class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</button>' +
+                        '<button type="button" class="button-group button-on" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '" disabled>' + settings.OnText + '</button>' +
+                        '<button type="button" class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '">' + settings.OffText + '</button>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
                     switchOffTpl = '<div id="bsh-' + id + '">' +
-                        '<button class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</button>' +
-                        '<button class="button-group button-off" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '" disabled>' + settings.OffText + '</button>' +
+                        '<button type="button" class="button-group button-default" data-toggle="' + dataToggle + '" data-title="' + settings.OnValue + '">' + settings.OnText + '</button>' +
+                        '<button type="button" class="button-group button-off" data-toggle="' + dataToggle + '" data-title="' + settings.OffValue + '" disabled>' + settings.OffText + '</button>' +
                         '</div>' +
                         '<div style="clear:both"></div>';
 
