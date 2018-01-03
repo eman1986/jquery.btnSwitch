@@ -18,6 +18,11 @@ gulp.task('build-dist', function () {
             gulpUglify(),
             gulp.dest('dist')
     ]);
+
+    pump([
+        gulp.src('btnswitch.d.ts')
+            .pipe(gulp.dest('dist'))
+    ]);
 });
 
 gulp.task('default', ['build-dist']);

@@ -7,14 +7,14 @@
     "dist"
   ],
   "dependencies": {
-    "jquery": ">=2.0"
+    "jquery": ">=2.2"
   },
   "devDependencies": {
-    "gulp": "^3.9",
-    "gulp-clean-css": "^2.3",
-    "gulp-concat": "^2.6",
-    "gulp-uglify": "^2.0",
-    "pump": "^1.0"
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^2.0.0"
   },
   "keywords": [
     "button",
